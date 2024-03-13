@@ -12,6 +12,12 @@ def index(request):
 
 
 def store(request):
+    """This method renders the store page for the application.
+
+    :Args request: An HTTP request object.
+
+    :Returns: An HTTP response with the rendered store.html template.
+    """
     return render(request, 'store.html')
 
 
