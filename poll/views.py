@@ -39,6 +39,20 @@ def detail(request, question_id):
 
 
 def results(request, question_id):
+    """This function renders the results page for a specific question,
+    by retrieving a question from the database based on the provided
+    question ID (`question_id`) and presenting its associated results on a webpage
+    using the 'poll/results.html' template. If the question with the given ID
+    is not found, an HTTP 404 (Not Found) error response is raised.
+
+    :Args:  request: An HTTP request object.
+            question_id: The primary key (pk) of the question to retrieve (assumed to be an integer).
+
+    :Returns: An HTTP response object with the rendered poll/results.html template
+        containing the results for the requested question.
+
+    :Raises: Http404: If the question with the given ID is not found in the database.
+    """
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'poll/results.html', {'question': question})
 
