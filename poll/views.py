@@ -28,12 +28,10 @@ def detail(request, question_id):
     `get_object_or_404` to handle the case where the question ID is not found,
     raising a 404 HTTP status code (page not found) in that scenario.
 
-    Args:
-        request: An HTTP request object.
-        question_id: The primary key (pk) of the question to retrieve.
+    :Args:  request: An HTTP request object.
+            question_id: The primary key (pk) of the question to retrieve.
 
-    Returns:
-        An HTTP response with the rendered poll/detail.html template containing
+    :Returns: An HTTP response with the rendered poll/detail.html template containing
         the details of the specified question.
     """
     question = get_object_or_404(Question, pk=question_id)
