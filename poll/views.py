@@ -8,6 +8,14 @@ from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def poll(request):
+    """This function renders the poll listing page for the application, 
+    by retrieving all available questions from the database and presents them on a webpage.
+
+    :Args request: An HTTP request object.
+
+    :Returns: An HTTP response with the rendered poll/poll.html template containing a
+        list of all questions.
+    """
     latest_question_list = Question.objects.all
     context = {'latest_question_list': latest_question_list}
     return render(request, 'poll/poll.html', context)
