@@ -22,6 +22,20 @@ def poll(request):
 
 
 def detail(request, question_id):
+    """ This function renders the detail page for a specific question,
+    by retrieving a question from the database based on the provided
+    question ID (`question_id`) and presenting it on a webpage. It utilizes
+    `get_object_or_404` to handle the case where the question ID is not found,
+    raising a 404 HTTP status code (page not found) in that scenario.
+
+    Args:
+        request: An HTTP request object.
+        question_id: The primary key (pk) of the question to retrieve.
+
+    Returns:
+        An HTTP response with the rendered poll/detail.html template containing
+        the details of the specified question.
+    """
     question = get_object_or_404(Question, pk=question_id)
     return render(request, 'poll/detail.html', {'question': question})
 
