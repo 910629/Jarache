@@ -6,8 +6,8 @@ class Question(models.Model):
     A question is characterized by its question text (`question_text`)
     and the date and time it was published (`pub_date`).
 
-    :param question_text (CharField): The text of the question (max length 200 characters).
-    :param pub_date (DateTimeField): The date and time the question was published.
+    :attribute question_text (CharField): The text of the question (max length 200 characters).
+    :attribute pub_date (DateTimeField): The date and time the question was published.
     """
     question_text = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
@@ -27,5 +27,5 @@ class Choice(models.Model):
     choice_text = models.CharField(max_length=200)
     vote = models.IntegerField(default=0)
 
-def __str__(self):
-    return self.choice_text
+    def __str__(self):
+        return self.choice_text
