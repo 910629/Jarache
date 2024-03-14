@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; Jarache  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Jarache
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Choice</span></code></a><ul>
+<li><a class="reference internal" href="#poll.models.Choice.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Choice.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#poll.models.Choice.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Choice.MultipleObjectsReturned</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#poll.models.Question"><code class="docutils literal notranslate"><span class="pre">Question</span></code></a><ul>
+<li><a class="reference internal" href="#poll.models.Question.DoesNotExist"><code class="docutils literal notranslate"><span class="pre">Question.DoesNotExist</span></code></a></li>
+<li><a class="reference internal" href="#poll.models.Question.MultipleObjectsReturned"><code class="docutils literal notranslate"><span class="pre">Question.MultipleObjectsReturned</span></code></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#poll.views.detail"><code class="docutils literal notranslate"><span class="pre">detail()</span></code></a></li>
+<li><a class="reference internal" href="#poll.views.poll"><code class="docutils literal notranslate"><span class="pre">poll()</span></code></a></li>
+<li><a class="reference internal" href="#poll.views.results"><code class="docutils literal notranslate"><span class="pre">results()</span></code></a></li>
+<li><a class="reference internal" href="#poll.views.vote"><code class="docutils literal notranslate"><span class="pre">vote()</span></code></a></li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Jarache</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/poll/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <p># Documenting the poll app</p>
+<dl class="py class" id="module-poll.models">
+<dt class="sig sig-object py" id="poll.models.Choice">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">poll.models.</span></span><span class="sig-name descname"><span class="pre">Choice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poll/models.html#Choice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poll.models.Choice" title="Link to this definition"></a></dt>
+<dd><p>This class defines a model for choices within the application.
+A choice is associated with a specific question (<cite>question</cite>) through a
+foreign key relationship. It has a <cite>choice_text</cite> field to store the text of
+the choice (max length 200 characters) and a <cite>vote</cite> field (IntegerField)
+to keep track of the number of votes received.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attribute question (ForeignKey)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A foreign key relationship to the Question model.</p>
+</dd>
+<dt class="field-even">Attribute choice_text (CharField)<span class="colon">:</span></dt>
+<dd class="field-even"><p>The text of the choice (max length 200 characters).</p>
+</dd>
+<dt class="field-odd">Attribute vote (IntegerField)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of votes received by this choice (default 0).</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="poll.models.Choice.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#poll.models.Choice.DoesNotExist" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="poll.models.Choice.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#poll.models.Choice.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="poll.models.Question">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">poll.models.</span></span><span class="sig-name descname"><span class="pre">Question</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poll/models.html#Question"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poll.models.Question" title="Link to this definition"></a></dt>
+<dd><p>This class defines a model for questions within the application.
+A question is characterized by its question text (<cite>question_text</cite>)
+and the date and time it was published (<cite>pub_date</cite>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attribute question_text (CharField)<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The text of the question (max length 200 characters).</p>
+</dd>
+<dt class="field-even">Attribute pub_date (DateTimeField)<span class="colon">:</span></dt>
+<dd class="field-even"><p>The date and time the question was published.</p>
+</dd>
+</dl>
+<dl class="py exception">
+<dt class="sig sig-object py" id="poll.models.Question.DoesNotExist">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DoesNotExist</span></span><a class="headerlink" href="#poll.models.Question.DoesNotExist" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="poll.models.Question.MultipleObjectsReturned">
+<em class="property"><span class="pre">exception</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">MultipleObjectsReturned</span></span><a class="headerlink" href="#poll.models.Question.MultipleObjectsReturned" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function" id="module-poll.views">
+<dt class="sig sig-object py" id="poll.views.detail">
+<span class="sig-prename descclassname"><span class="pre">poll.views.</span></span><span class="sig-name descname"><span class="pre">detail</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poll/views.html#detail"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poll.views.detail" title="Link to this definition"></a></dt>
+<dd><p>This function renders the detail page for a specific question,
+by retrieving a question from the database based on the provided
+question ID (<cite>question_id</cite>) and presenting it on a webpage. It utilizes
+<cite>get_object_or_404</cite> to handle the case where the question ID is not found,
+raising a 404 HTTP status code (page not found) in that scenario.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args<span class="colon">:</span></dt>
+<dd class="field-odd"><p>request: An HTTP request object.
+question_id: The primary key (pk) of the question to retrieve.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An HTTP response with the rendered poll/detail.html template containing
+the details of the specified question.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poll.views.poll">
+<span class="sig-prename descclassname"><span class="pre">poll.views.</span></span><span class="sig-name descname"><span class="pre">poll</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poll/views.html#poll"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poll.views.poll" title="Link to this definition"></a></dt>
+<dd><p>This function renders the poll listing page for the application,
+by retrieving all available questions from the database and presents them on a webpage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args request<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An HTTP request object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An HTTP response with the rendered poll/poll.html template containing a
+list of all questions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poll.views.results">
+<span class="sig-prename descclassname"><span class="pre">poll.views.</span></span><span class="sig-name descname"><span class="pre">results</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poll/views.html#results"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poll.views.results" title="Link to this definition"></a></dt>
+<dd><p>This function renders the results page for a specific question,
+by retrieving a question from the database based on the provided
+question ID (<cite>question_id</cite>) and presenting its associated results on a webpage
+using the ‘poll/results.html’ template. If the question with the given ID
+is not found, an HTTP 404 (Not Found) error response is raised.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args<span class="colon">:</span></dt>
+<dd class="field-odd"><p>request: An HTTP request object.
+question_id: The primary key (pk) of the question to retrieve (assumed to be an integer).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An HTTP response object with the rendered poll/results.html template
+containing the results for the requested question.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Http404: If the question with the given ID is not found in the database.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="poll.views.vote">
+<span class="sig-prename descclassname"><span class="pre">poll.views.</span></span><span class="sig-name descname"><span class="pre">vote</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">request</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">question_id</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/poll/views.html#vote"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#poll.views.vote" title="Link to this definition"></a></dt>
+<dd><p>Records a vote for a specific choice within a question.
+It handles user votes on a question. It first retrieves the
+question based on the provided ID (<cite>question_id</cite>) and verifies if the user
+is authenticated using the <cite>&#64;login_required</cite> decorator. If not authenticated,
+it redirects the user to the login page.</p>
+<p>The function then attempts to retrieve the selected choice based on the
+submitted form data (<cite>request.POST[‘choice’]</cite>). If the choice ID is missing
+or the choice doesn’t exist, it renders the detail template (<cite>poll/detail.html</cite>)
+with an error message.</p>
+<p>On successful retrieval of the selected choice, the function increments its
+<cite>vote</cite> count, saves the changes, and redirects the user to the results page
+for the specific question using <cite>HttpResponseRedirect</cite> and <cite>reverse</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Args<span class="colon">:</span></dt>
+<dd class="field-odd"><p>request: An HTTP request object.
+question_id: The primary key (pk) of the question to vote on (assumed to be an integer).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An HTTP response object:
+- Redirects to the login page if the user is not authenticated.
+- Renders the detail template with an error message if the choice is invalid.
+- Redirects to the results page for the question upon successful vote.</p>
+</dd>
+<dt class="field-odd">Raises Http404<span class="colon">:</span></dt>
+<dd class="field-odd"><p>If the question with the given ID is not found (indirectly through get_object_or_404).</p>
+</dd>
+</dl>
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Your Name.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
