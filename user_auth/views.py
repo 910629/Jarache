@@ -106,5 +106,13 @@ def register_user(request):
         
 
 def logout_view(request):
+    """Logs out the currently authenticated user and redirects to the poll list page.
+    It logs out the user using `logout(request)`, which removes the user's session data. 
+    The function then redirects the user to the poll list page using `reverse('poll:poll')`.
+
+    :param request: An HTTP request object.
+
+    :Returns: An HTTP response object redirecting to the poll listing page.
+    """
     logout(request)
     return redirect('poll:poll')
