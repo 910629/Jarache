@@ -7,10 +7,9 @@ from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def user_login(request):
-    """
-    This function is used in a login view of the application.
-    It simply renders the 'registration/login.html' template, which
-    presumably contains a login form for users to authenticate.
+    """This function is used in a login view of the application.
+    It renders the 'registration/login.html' template, which 
+    contains a login form for users to authenticate.
 
     :param request: An HTTP request object.
 
