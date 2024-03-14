@@ -49,6 +49,17 @@ def authenticate_user(request):
 
 @login_required(login_url='user_auth:login')
 def show_user(request):
+    """This function displays user profile information (password is hashed by Django for security reasons).
+    It retrieves the currently authenticated user's information
+    from the request object (`request.user`). It's decorated with
+    `@login_required` to ensure only authenticated users can access this view.
+
+    
+    :param request: An HTTP request object.
+
+    :returns:   An HTTP response object with the rendered 'authentication/user.html' template
+                containing the user's profile information (password hashed).
+    """
     print(request.user.username)
     return render(request, 'authentication/user.html', {
         "username": request.user.username,
