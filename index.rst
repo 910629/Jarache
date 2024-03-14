@@ -10,7 +10,16 @@ Welcome to Jarache's documentation!
    :maxdepth: 2
    :caption: Contents:
 
+   admin
+   apps
+   asgi
+   models
    modules
+   settings
+   tests
+   urls
+   views
+   wsgi
 
 Indices and tables
 ==================
