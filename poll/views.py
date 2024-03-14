@@ -59,6 +59,30 @@ def results(request, question_id):
 
 @login_required
 def vote(request, question_id):
+    """Records a vote for a specific choice within a question.
+    It handles user votes on a question. It first retrieves the
+    question based on the provided ID (`question_id`) and verifies if the user
+    is authenticated using the `@login_required` decorator. If not authenticated,
+    it redirects the user to the login page.
+
+    The function then attempts to retrieve the selected choice based on the
+    submitted form data (`request.POST['choice']`). If the choice ID is missing
+    or the choice doesn't exist, it renders the detail template (`poll/detail.html`)
+    with an error message.
+
+    On successful retrieval of the selected choice, the function increments its
+    `vote` count, saves the changes, and redirects the user to the results page
+    for the specific question using `HttpResponseRedirect` and `reverse`.
+
+    :Args:  request: An HTTP request object.
+            question_id: The primary key (pk) of the question to vote on (assumed to be an integer).
+
+    :Returns:   An HTTP response object:
+                - Redirects to the login page if the user is not authenticated.
+                - Renders the detail template with an error message if the choice is invalid.
+                - Redirects to the results page for the question upon successful vote.
+    :Raises Http404: If the question with the given ID is not found (indirectly through get_object_or_404).
+    """
     question = get_object_or_404(Question, pk=question_id)
 
     if not request.user.is_authenticated:
