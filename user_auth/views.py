@@ -19,6 +19,20 @@ def user_login(request):
 
 
 def authenticate_user(request):
+    """This method processes user authentication based on submitted credentials.
+    It handles user login requests by retrieving username and password
+    from the POST data (`request.POST`). It attempts to authenticate the user
+    using Django's `authenticate` function.
+    - If authentication fails (user is None), the function redirects the user
+      back to the login page (`reverse('user_auth:login')`).
+    - On successful authentication, the user is logged in using `login(request, user)`
+      and redirected to the 'user_auth:show_user' URL (a profile page).
+
+    :param request: An Http request object.
+
+    :returns:   HttpresponseRedirect: redirects user to login page if authentication fails
+                HttpresponseRedirect: redirects user to user profile page if authentication is successful
+    """
     username = request.POST['username']
     password = request.POST['password']
     user = authenticate(username=username, password=password)
