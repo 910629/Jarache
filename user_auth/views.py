@@ -68,6 +68,31 @@ def show_user(request):
 
 
 def register_user(request):
+    """This function handles user registration requests and creates new user accounts.
+    It checks if the request method is POST, then:
+
+        - Creates a `UserCreationForm` instance using the submitted data (`request.POST`).
+        - Validates the form data using `form.is_valid()`.
+        - If valid:
+            - Saves the new user using `form.save()`.
+            - Logs the user in using `login(request, user)`.
+            - Redirects the user to the profile page (`reverse('user_auth:show_user')`).
+        - If invalid:
+            - Creates an empty `UserCreationForm` instance for the user to correct errors.
+    
+    Or else:
+        - Creates an empty `UserCreationForm` instance for the registration form.
+
+    The function then renders the 'authentication/registration.html' template,
+    passing the appropriate form object (`form`) for display and form completion.
+
+    :param request: An HTTP request object.
+
+    :Returns:   An HTTP response object:
+            - Renders the registration form template (GET request).
+            - Renders the registration form template with validation errors (POST request, invalid form).
+            - Redirects to the user profile page on successful registration (POST request, valid form).
+    """
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
         if form.is_valid():
