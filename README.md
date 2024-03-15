@@ -44,7 +44,15 @@ It also affords users the opportunity to give feedback on Jarache's skills.
    1. Install Python (see Prerequisites for link).
    2. Clone the *Jarache* repository.
     ''' 
-    git clone https://github.com/910629/Jarache 
+    git clone https://github.com/910629/Jarache
+    '''
+   3. Navigate to project directory.
+    '''
+    cd Jarache
+    '''
+   4. install required packages.
+    '''
+    pip install -r requirements.txt
     '''
 
   #### Using Docker Playground:
@@ -52,10 +60,20 @@ It also affords users the opportunity to give feedback on Jarache's skills.
     ''' 
     git clone https://github.com/910629/Jarache 
     '''
+   2. Navigate to the project directory.
+    '''
+    cd Jarache
+    '''
+   3. 
 
   #### Using Docker (Desktop Application):
-   1. Install Docker: If you don't have Docker installed, download and install it from the official website: 
+   1. Install Docker: If you don't have Docker installed, download and install it from the official
+   website: 
    [Docker:get started](https://www.docker.com/get-started)
+   2. Build the docker image.
+    '''
+    docker build -t Jarache_image .
+    '''
 
  ### Running the Application
   #### Direct Execution (Without Docker; using IDE):
