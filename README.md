@@ -24,7 +24,7 @@ It also affords users the opportunity to give feedback on Jarache's skills.
  * Navigation
   * Navigating *Jarache Khunyeli's Bio*
   * Navigating *Mike Store - Online Store*
-  * Navigating *Poll - Jarache's Skills*
+  * Navigating *Poll*
 
 3. Credits
  * Contributions
@@ -115,10 +115,65 @@ It also affords users the opportunity to give feedback on Jarache's skills.
   You'll notice that it also features a form which captures user's details:
   **Note: For display purposes only.**
 
-  ![Store form screenshot](data/)
+  ![Store form screenshot](data/screenshots/storeform_scr.jpg)
 
+  If you'd like to return to *Jarache Khunyeli's Bio*, click on the *Back to Developer's Profile* link
+  Or alternatively, if you'd like to participate in the poll, click on the *Take a poll Jarache Khunyeli's Developer Skills* link.
 
+  ![Store nav screenshot](data/screenshots/storenav_scr.jpg)
 
+ ### Navigating *Poll*
+  If you clicked on the *poll* link on the *Bio* page, or the *Take a poll Jarache Khunyeli's Developer Skills* link 
+  on the *Mike Store - Online Store* page; This is the page you'll be directed to:
 
+  ![Poll screenshot](data/screenshots/pollsite_scr.jpg)
 
-  * Navigating *Poll - Jarache's Skills*
+  **Important: You need to be registered in order to vote on any of the questions.**
+  However, you may click on each question to view their respective *Details* page before registering to vote:
+
+  ![Detail example screenshot](data/screenshots/detailsite_scr.jpg)
+
+  If you select one of the radio buttons on a question's *Details* page, or if you clicked on the linked labeled *here*
+  on the *Poll* page: This is the page you'll be directed to.
+
+  ![Register page screenshot](data/screenshots/registersite_scr.jpg)
+
+  This page diplays a form for you to enter a *username, unique password, and validate your password* (insructions included).
+  Once you've done this successfully (without any errors) and clicked on *submit*, you will be directed to the *User Homepage*:
+
+  ![User page screenshot](data/screenshots/usersite_scr.jpg)
+
+  Notice that your username is displayed, but your password is automatically hashed for security purposes.
+  So, please make sure you remember it for future reference.
+
+  Now you are ready to vote. Click on the *Take part in my poll* link. Or alternative, click on *logout* if that's what you wish to do.
+  Once you have selected a question to vote on, chosen an option, and clicked on *Vote*: 
+  You will be directed to the question's *Results* page. 
+
+  ![Results page screenshot](data/screenshots/results_scr.jpg)
+
+## Credits
+ ### Contributions
+  This application was built by Jarache Khunyeli, 
+  with the much appreciated help of Hyperion Development, w3schools.com and stackoverflow.com. 
+
+ ### Licenses
+  The Jarache application utilizes the following open-source licenses:
+   * Django (4.2.6) - BSD 3-Clause "New" or "Revised" License: https://opensource.org/licenses/BSD-3-Clause
+   * alabaster (0.7.16) - BSD-3 Clause License
+   * asgiref (3.7.2) - MIT License: https://github.com/django/asgiref/blob/master/LICENSE
+   * Babel (2.14.0) - MIT License: https://github.com/python-babel/babel/blob/master/LICENSE
+   * certifi (2023.7.22) - Apache License 2.0
+   * charset-normalizer (3.3.2) - BSD License
+   * colorama (0.4.6) - MIT License
+   * distlib (0.3.7) - MIT License
+   * docutils (0.20.1) - Public Domain
+   * filelock (3.12.4) - MIT License
+   * idna (3.6) - MIT License
+   * imagesize (1.4.1) - MIT License
+   * Jinja2 (3.1.3) - BSD 3-Clause License
+   * MarkupSafe (2.1.5) - BSD 3-Clause License: https://github.com/pallets/markupsafe/blob/master/LICENSE.rst
+   * packaging (23.2) - PSF (Python Software Foundation) License: https://github.com/pypa/packaging/blob/master/LICENSE
+   * pipenv (2023.10.24) - MIT License:
+   * platformdirs (3.11.0) - MIT License:
+   * Pygments (2.17)
