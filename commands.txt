@@ -1,2 +1,2 @@
-docker build --tag Jarache_image .
-docker run --publish 8000:8000 Jarache_image
+docker build --tag jarache_image .
+docker run --publish 8000:8000 jarache_image
